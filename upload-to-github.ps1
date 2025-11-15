@@ -1,7 +1,7 @@
 param(
     [string]$GitUser = "",
     [string]$RepoName = "",
-    [string]$Branch = "main"
+    [string]$Branch = "master"
 )
 
 if ($GitUser -eq "" -or $RepoName -eq "") {
