@@ -5,25 +5,25 @@ param(
 )
 
 if ($GitUser -eq "" -or $RepoName -eq "") {
-    Write-Host "Ошибка: укажи параметры: -GitUser <ТВОЙ_НИК> -RepoName <ИМЯ_РЕПО>"
+    Write-Host "Error: provide parameters: -GitUser <YOUR_NICK> -RepoName <REPO_NAME>"
     exit
 }
 
-Write-Host "=== Инициализация Git ==="
+Write-Host "=== Initializing Git ==="
 git init
 
-Write-Host "=== Добавление файлов ==="
+Write-Host "=== Adding files ==="
 git add .
 
-Write-Host "=== Создание коммита ==="
+Write-Host "=== Creating commit ==="
 git commit -m "Initial commit"
 
 $remoteUrl = "https://github.com/$GitUser/$RepoName.git"
 
-Write-Host "=== Добавление удалённого репозитория ==="
+Write-Host "=== Adding remote repository ==="
 git remote add origin $remoteUrl
 
-Write-Host "=== Пуш в GitHub ==="
+Write-Host "=== Pushing to GitHub ==="
 git push -u origin $Branch
 
-Write-Host "Готово! Репозиторий загружен: $remoteUrl"
+Write-Host "Done! Repository uploaded: $remoteUrl"
